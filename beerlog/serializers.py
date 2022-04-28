@@ -1,5 +1,4 @@
 from datetime import datetime
-from statistics import mean
 
 from fastapi import HTTPException, status
 from pydantic import BaseModel, validator
