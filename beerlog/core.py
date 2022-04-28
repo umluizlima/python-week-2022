@@ -12,17 +12,18 @@ def add_beer_to_database(
     image: int,
     cost: int,
 ) -> bool:
+    beer = Beer(
+        name=name,
+        style=style,
+        flavor=flavor,
+        image=image,
+        cost=cost,
+    )
     with get_session() as session:
-        beer = Beer(
-            name=name,
-            style=style,
-            flavor=flavor,
-            image=image,
-            cost=cost,
-        )
         session.add(beer)
         session.commit()
-    return True
+        session.refresh(beer)
+    return beer
 
 
 def get_beers_from_database() -> List[Beer]:
