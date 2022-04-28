@@ -1,8 +1,10 @@
-from dataclasses import dataclass
+from typing import Optional
+
+from sqlmodel import SQLModel, Field
 
 
-@dataclass
-class Beer:
+class Beer(SQLModel, table=True):
+    id: Optional[int] = Field(primary_key=True, default=None, index=True)
     name: str
     style: str
     flavor: int
