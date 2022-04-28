@@ -1,5 +1,7 @@
 import typer
 
+from beerlog.core import add_beer_to_database
+
 
 main = typer.Typer(help="Beer Management Application")
 
@@ -13,7 +15,8 @@ def add(
     cost: int = typer.Option(...),
 ):
     """Adds a new beer to database."""
-    print(name, style)
+    if add_beer_to_database(name, style, flavor, image, cost):
+        print("beer added to database")
 
 
 @main.command("list")
