@@ -14,7 +14,7 @@ def test_create_beer_via_api():
             "flavor": 1,
             "image": 2,
             "cost": 2,
-        }
+        },
     )
     assert response.status_code == 201
     result = response.json()
