@@ -14,6 +14,6 @@ async def list_beers():
     return beers
 
 
-@api.post("/beers/", response_model=BeerOut)
+@api.post("/beers/", response_model=BeerOut, status_code=201)
 async def add_beer(beer_in: BeerIn):
     return add_beer_to_database(**beer_in.dict())
