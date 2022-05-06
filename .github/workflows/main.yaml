@@ -57,7 +57,6 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Build image
-        uses: actions-hub/docker@master
         run: docker build -t umluizlima/beerlog:latest --file docker/Dockerfile .
 
       - name: Push to Docker Hub
